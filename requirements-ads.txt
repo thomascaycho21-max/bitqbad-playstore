@@ -1,0 +1,6 @@
+# ADS / Monetizacion
+# Nota: python-admob NO existe en PyPI.
+# Los ads se implementan en FIX 6 con:
+#   - Web: Google AdSense via JS embebido (sin dependencia pip)
+#   - Desktop: sin anuncios (los ads no aplican)
+#   - Android/iOS: se usaria flet-ads cuando exista, o se simula

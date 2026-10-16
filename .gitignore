@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Flet / build
+build/
+dist/
+*.apk
+*.aab
+*.ipa
+*.dmg
+*.exe
+.flet/
+
+# Cache
+cache/
+temp/
+.pytest_cache/
+.mypy_cache/
+
+# Logs
+logs/*.log
+*.log
+
+# Backups
+backup/
+
+# IDE
+.vscode/
+.idea/
+
+# Secretos - NO SUBIR
+.env
+.env.local
+*.keystore
+*.jks
+secrets.json

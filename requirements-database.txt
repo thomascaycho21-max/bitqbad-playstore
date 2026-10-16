@@ -1,0 +1,4 @@
+# DATABASE
+sqlalchemy>=2.0.0
+tinydb>=4.8.0
+aiosqlite>=0.20.0

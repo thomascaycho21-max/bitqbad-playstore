@@ -1,0 +1,5 @@
+# BitQbad PlayStore - Requirements principal
+-r requirements-core.txt
+-r requirements-backend.txt
+-r requirements-database.txt
+-r requirements-ads.txt

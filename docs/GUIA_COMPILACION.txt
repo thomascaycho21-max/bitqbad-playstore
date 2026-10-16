@@ -1,0 +1,63 @@
+============================================================
+  BitQbad PlayStore - GUIA DE COMPILACION
+============================================================
+Este documento NO compila. Solo explica como hacerlo.
+Usa compilador.bat para lanzar el build manualmente.
+
+REQUISITOS BASE:
+  Python 3.11+
+  pip install -r requirements.txt
+
+WINDOWS:
+  compilador.bat -> opcion 1
+  o:  flet build windows --output copilacion\windows
+  Requiere: Visual Studio Build Tools (C++)
+
+LINUX:
+  compilador.bat -> opcion 2
+  o:  flet build linux --output copilacion\linux
+  sudo apt install clang cmake ninja-build pkg-config libgtk-3-dev
+
+ANDROID (APK):
+  compilador.bat -> opcion 3
+  o:  flet build apk --output copilacion\android
+  Requiere: Java JDK 17, Android SDK, ANDROID_HOME configurado.
+  Firma release:
+    keytool -genkey -v -keystore bitqbad.keystore -alias bitqbad ^
+      -keyalg RSA -keysize 2048 -validity 10000
+
+ANDROID (AAB para Play Store):
+  compilador.bat -> opcion 4
+  o:  flet build aab --output copilacion\android
+
+iOS (IPA):
+  *** NECESITAS MAC CON macOS 13+ Y XCODE 15+ ***
+  compilador.bat -> opcion 5 (en un Mac)
+  o:  flet build ipa --output copilacion\ios
+  Alternativas sin Mac: GitHub Actions con runner macos-latest,
+  Codemagic, MacinCloud, MacStadium.
+
+macOS (APP):
+  *** NECESITAS MAC ***
+  compilador.bat -> opcion 6
+  o:  flet build macos --output copilacion\macos
+
+WEB (Render):
+  compilador.bat -> opcion 7
+  o:  flet build web --output copilacion\web
+  Sube el repo a GitHub y conecta con Render:
+    Build Command:  pip install -r requirements.txt
+    Start Command:  flet run --web --port $PORT --host 0.0.0.0 main.py
+  Plan Free = 720 h/mes.
+  Mantener despierto 24/7:
+    https://uptimerobot.com    -> monitor HTTP cada 5 min
+    https://cron-job.org       -> job cada 5 min
+    GitHub Actions con cron '*/10 * * * *' haciendo curl a la URL
+
+BACKUPS:
+  Este script crea backup_<timestamp> en \backup automaticamente
+  cada vez que lo ejecutas.
+
+SPEC PyInstaller:
+  bitqbad.spec -> alternativa a flet build para Windows
+  pyinstaller bitqbad.spec

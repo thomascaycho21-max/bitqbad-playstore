@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: bitqbad-playstore
+    runtime: python
+    plan: free
+    region: oregon
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
+      - key: FLET_FORCE_WEB_SERVER
+        value: "true"
+      - key: FLET_SERVER_PORT
+        sync: false
+      - key: FLET_SERVER_HOST
+        value: 0.0.0.0
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: GITHUB_REPO
+        sync: false
+      - key: GITHUB_REVIEW_LABEL
+        value: review
+      - key: GITHUB_COINS_REPO
+        sync: false

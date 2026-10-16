@@ -1,0 +1,40 @@
+============================================================
+  SOLUCION DE ERRORES COMUNES
+============================================================
+
+[E1] module 'flet' has no attribute 'colors'
+  CAUSA: Flet 0.25+ elimino ft.colors (minuscula).
+  FIX:   Cambiar ft.colors.X -> ft.Colors.X
+         Cambiar ft.icons.X  -> ft.Icons.X
+         Cambiar ft.alignment.center -> ft.Alignment(0, 0)
+
+[E2] module 'flet' has no attribute 'icons'
+  FIX: ft.icons.X -> ft.Icons.X
+
+[E3] flet: command not found
+  FIX: pip install flet
+       o usar: python -m flet run main.py
+
+[E4] Android SDK not found
+  FIX: Configurar ANDROID_HOME y JAVA_HOME
+       sdkmanager --licenses
+
+[E5] iOS build requires macOS
+  FIX: Imposible compilar iOS en Windows/Linux.
+       Usa un Mac o GitHub Actions con macos-latest.
+
+[E6] Render: Application failed to respond
+  FIX: En el Start Command usar:
+       flet run --web --port $PORT --host 0.0.0.0 main.py
+       (Render asigna el puerto en la variable PORT)
+
+[E7] Render: 720 horas agotadas
+  CAUSA: El plan free da 720 h/mes. Si el servicio nunca duerme
+         y hay varios servicios, se agota.
+  FIX:   Usar 1 solo servicio web.
+         UptimeRobot cada 5 min NO consume horas extra porque
+         la app se mantiene despierta dentro del mismo servicio.
+
+[E8] pip install falla por permisos
+  FIX: python -m pip install --user -r requirements.txt
+       o ejecutar como admin.
